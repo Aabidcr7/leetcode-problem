@@ -1,0 +1,10 @@
+class Solution:
+    def countPrimes(self, n: int) -> int:
+        s=0
+        d=[1]*n
+        for i in range(2,n):
+            if not(d[i]):
+                continue
+            s+=1
+            d[i*i:n:i]=[0]*((n-1)//i-i+1)
+        return s
