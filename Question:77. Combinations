@@ -1,0 +1,14 @@
+class Solution:
+    def combine(self, n, k):
+        sol=[]
+        def backtrack(r,comb,nex):
+            if r==0:
+                sol.append(comb.copy())
+            else:
+                for i in range(nex,n+1):
+                    comb.append(i)
+                    backtrack(r-1,comb,i+1)
+                    comb.pop()
+            
+        backtrack(k,[],1)
+        return sol
